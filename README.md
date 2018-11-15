@@ -47,6 +47,9 @@ File can be accessed either by downloading the zip or clone the repository from 
 To open test results, see file located in jasmine/spec titled [feedreader.js](
         Hollys-Feed-Reader-Testing/jasmine/spec/feedreader.js
       ).
+Tests can be seen in the browser by opening [index.html](
+        Hollys-Feed-Reader-Testing/index.html
+      ).
 
 ##Acknowledgements
 

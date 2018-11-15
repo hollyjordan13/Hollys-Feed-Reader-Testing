@@ -8,7 +8,7 @@
  * since some of these tests may require DOM elements. We want
  * to ensure they don't run until the DOM is ready.
  */
-$(function() {
+ $(function() {
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
@@ -22,7 +22,7 @@ $(function() {
          * page?
          */
          /* Expect this test to pass*/
-        it('are defined', function() {
+         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
@@ -37,7 +37,7 @@ $(function() {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
             }
-         });
+        });
 
         /* A test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
@@ -49,8 +49,8 @@ $(function() {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0)
             }
-         })
-});
+        })
+     });
 
     /* A new test suite named "The menu" */
     describe('The menu', function() {
@@ -62,13 +62,13 @@ $(function() {
          it('is hidden', function() {
             const body = document.querySelector('body');
             expect(body.classList.contains('menu-hidden')).toBe(true);
-         });
+        });
          /* A test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-        it('toggles on and off', function() {
+          it('toggles on and off', function() {
             const body = document.querySelector('body');
             const menu = document.querySelector('.menu-icon-link');
 
@@ -78,7 +78,7 @@ $(function() {
             menu.click();
             expect(body.classList.contains('menu-hidden')).toBe(true);
         })  
-});
+      });
     /* A new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
         /* A test that ensures when the loadFeed
@@ -89,13 +89,12 @@ $(function() {
          */
          beforeEach(function(done) {
             loadFeed(0, done);
-         });
+        });
 
          it('completes work', function() {
-            const feed = document.querySelector('.feed');
-            expect($('.entry').length > 0).toBe(true);
-         });
-});
+            expect($('.feed .entry').length).toBeGreaterThan(0);
+        });
+     });
     /* A new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
         /* A test that ensures when a new feed is loaded
@@ -105,19 +104,20 @@ $(function() {
 
 
          beforeEach(function(done) {
-            loadFeed(0, function() {
-                feedOne = $('.feed').html();
-                done();
-                });
-         });
-
-         it('content changes', function(done) {
-            loadFeed(1, function() {
-                feedTwo = $('.feed').html();
-                expect(feedTwo).not.toEqual(feedOne);
-                done();
+            loadFeed(1, function() { //loads first feed
+                feedOne = $('.feed').html(); //saves its contents in a variable
+                
+                loadFeed(2, function() { //loads second feed as callback of the first
+                    feedTwo = $('.feed').html(); //saves content of second feed in variable
+                    
+                done(); //calls done() to exit and run the spec
             });
             });
+        });
 
-         });
+         it('content changes', function() {
+            expect(feedTwo).not.toEqual(feedOne);
+        });
      });
+
+});
