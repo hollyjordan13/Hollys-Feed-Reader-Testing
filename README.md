@@ -9,6 +9,7 @@ Udacity Front-End Web Developer Nanodegree Part 3 Project: Feed Reader Testing.
 
 * Project Overview
 * Build Considerations
+* How to Run the Application
 * Acknowledgements
 * [Contributing](#contributing)
 
@@ -18,7 +19,7 @@ This project is a web-based application that reads RSS feeds. The original devel
 
 Testing is an important part of the development process and many organizations practice a standard of development known as "test-driven development". This is when developers write tests first, before they ever start developing their application. All the tests initially fail and then they start writing application code to make these tests pass.
 
-The Project is available on GitHub, titled [Hollys-Feed-Reader-Testing]().
+The Project is available on GitHub, titled [Hollys-Feed-Reader-Testing](https://github.com/hollyjordan13/Hollys-Feed-Reader-Testing).
 
 ##Build Considerations
 
@@ -38,6 +39,14 @@ The Project is available on GitHub, titled [Hollys-Feed-Reader-Testing]().
 14. Callbacks should be used to ensure that feeds are loaded before they are tested.
 15. Implement error handling for undefined variables and out-of-bound array access.
 16. When complete - all of your tests should pass. 
+
+##How to Run the Application
+
+File can be accessed either by downloading the zip or clone the repository from GitHub [here](https://github.com/hollyjordan13/Hollys-Feed-Reader-Testing).
+
+To open test results, see file located in jasmine/spec titled [feedreader.js](
+        Hollys-Feed-Reader-Testing/jasmine/spec/feedreader.js
+      ).
 
 ##Acknowledgements
 
